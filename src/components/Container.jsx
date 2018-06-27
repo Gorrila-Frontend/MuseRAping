@@ -29,7 +29,12 @@ class Container extends Component {
       thTrack: track1,
       autoPlay: false,
       imageSrc: '',
+      isEnd: this.end,
       isName: '',
+      isPlay: false,
+      duration: '',
+      currentTime: '',
+      clearInterval: false,
       isTracks: [
             {
               id: 1,
@@ -73,12 +78,19 @@ class Container extends Component {
     this.trackSrc = this.state.isTracks.map(i => i.src);
     this.trackImg = this.state.isTracks.map(i => i.img);
     this.trackName = this.state.isTracks.map(i => i.name);
+    let player = document.getElementById('player');
+    this.defTrack = this.state.isTracks[0];
+
   }
+
+
   render () {
     let player = document.getElementById('player');
-    console.log(this.state.isTracks.map(i => i.src))
     return (
       <div className='container'>
+        <Button onClick={
+          this.durationTrack
+        }/>
         <div className='album'>
           <img
             className="album-image"
@@ -89,7 +101,7 @@ class Container extends Component {
           </span>
         </div>
         <div className='Buttons-container'>
-          {/* <Button
+           <Button
             outline
             className='btnC'
             color="primary"
@@ -108,7 +120,27 @@ class Container extends Component {
             <i
               className="fas fa-pause fa-1x">
             </i>
-          </Button> */}
+          </Button>
+          <Button
+            disabled={
+              this.state.plusDisab
+            }
+            onClick={this.clickPlusVol}
+             className='btnC'
+             outline
+             color="primary"
+            >
+          <i className="fas fa-plus">
+          </i>
+           </Button>
+          <Button
+            disabled={this.state.minusDisab}
+            onClick={this.clickMinusVal}
+             className='btnC'
+             outline
+             color="primary">
+             <i className="fas fa-minus"></i>
+           </Button>
 
           <audio
             controls
@@ -135,37 +167,42 @@ class Container extends Component {
         >
           <i className="fas fa-chevron-left fa-1x"></i>
         </Button>
-        <div className="val">
-             <Button
-               disabled={
-                 this.state.plusDisab
-               }
-               onClick={this.clickPlusVol}
-                className='btnC'
-                outline
-                color="primary"
-               >
-             <i className="fas fa-plus">
-             </i>
-              </Button>
-             <Button
-               disabled={this.state.minusDisab}
-               onClick={this.clickMinusVal}
-                className='btnC'
-                outline
-                color="primary">
-                <i className="fas fa-minus"></i>
-              </Button>
-        </div>
+        <input
+           value={}
+           step='2'
+           type="range"
+           style={{
+            width: '100%',
+            marginTop: '10px',
+            height: '20px',
+            background: 'rgba(0,0,0, 0.4)'
+        }}
+      />
       </div>
     )
   }
   handlerPlay = () => {
     let player = document.getElementById('player');
-    player.play();
+
+    let timeId = setInterval(() => {
+      this.setState({
+        currentTime: player.currentTime
+      })
+    }, 1000)
+    this.setState({
+      isPlay: !this.state.isPlay,
+      duration: player.duration,
+      clearInterval: false
+    })
+    this.state.clearInterval ? clearInterval : null
+    player.play()
+
   }
   handlerPause = () => {
     let player = document.getElementById('player');
+    this.setState({
+      clearInterval: !this.clearInterval
+    })
     player.pause();
   }
   clickNext = () => {
@@ -178,7 +215,6 @@ class Container extends Component {
         isName: this.state.isTracks[this.state.isNext].name,
         autoPlay: true,
       })
-      return console.log(this.state.thTrack)
   }
   clickPrev = () => {
     let player = document.getElementById('player');
@@ -224,7 +260,18 @@ class Container extends Component {
         console.log(this.state.val)
       )
     }
-  }
+  durationTrack = () => {
+    let player = document.getElementById('player');
+}
+componentDidUpdate () {
+  let player = document.getElementById('player');
+  let timing = player.currentTime;
+  let duration = player.duration
+}
+currTime =  () => {
+  let ct = JSON.stringify(this.state.currentTime + 'px');
+ }
 
+}
 
 export default Container;
