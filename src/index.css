@@ -1,0 +1,153 @@
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+  width: 100%;
+}
+.container {
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 60px 2px rgba(0,0,0, .4);
+  text-align: center;
+}
+.btn {
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.material-icons {
+  margin-top: 5px !important;
+}
+.Buttons-container {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%,0);
+  margin: 0 auto;
+  width: 300px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.Badges-volume {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-flow: row-reverse;
+}
+.chevron-right {
+  position: absolute;
+  right: 100px;
+  top: 50%;
+  border-radius: 50% !important;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chevron-left {
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  border-radius: 50% !important;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.album {
+  max-width: 320px;
+  max-height: 320px;
+  margin: 0 auto;
+  margin-top: 130px;
+}
+.album-image {
+  display: block;
+  max-width: 90%;
+  position: relative;
+  margin-bottom: 20px;
+}
+.btnC {
+  border-radius: 50% !important;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  text-align: center;
+  width: 40px !important;
+  height: 40px !important;
+}
+.name-song {
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+.val {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-flow: row;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+@media screen and (max-width: 320px){
+  .album-image {
+    width: 100%;
+  }
+  .album {
+    max-width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 80px;
+  }
+  .chevron-right {
+    position: absolute;
+    right: 100px;
+    top: 60%;
+    border-radius: 50% !important;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .chevron-left {
+    position: absolute;
+    left: 100px;
+    top: 60%;
+    border-radius: 50% !important;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Buttons-container {
+    top: 70%;
+  }
+  .val {
+    top: 54%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-flow: column;
+    left: 50px;
+  }
+
+}
